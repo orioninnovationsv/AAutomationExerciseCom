@@ -15,6 +15,7 @@ public class AutomationExerciseLoginPage {
 
     WebDriver driver;
     public AutomationExerciseLoginPage(WebDriver driver){
+
         this.driver = driver;
         PageFactory.initElements(this.driver, this );
     }
