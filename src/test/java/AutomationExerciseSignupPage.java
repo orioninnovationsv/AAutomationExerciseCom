@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AutomationExerciseSignupPage {
@@ -16,7 +17,7 @@ public class AutomationExerciseSignupPage {
 
     public AutomationExerciseSignupPage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(this.driver, this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(xpath = "//b[contains(text(),'Enter Account Information')]")
@@ -99,6 +100,7 @@ public class AutomationExerciseSignupPage {
         return getEnterAccountInformationText;
 
     }
+
     public void SignupPage(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(EnterAccountInformationText));
@@ -109,11 +111,20 @@ public class AutomationExerciseSignupPage {
         Mr.click();
 
         wait.until(ExpectedConditions.visibilityOf(Name));
-        Assert.assertEquals(AutomationExerciseAccountInfo.NewName,"Baris3");
+        WebElement getNewNameText = driver.findElement(By.id("name"));
+        String actualNewName = getNewNameText.getAttribute("value");
+        String expectedNewName="Baris12";
+        Assert.assertEquals(expectedNewName,actualNewName);
+        //Assert.assertEquals(AutomationExerciseAccountInfo.NewName,"Baris9");
 
         wait.until(ExpectedConditions.visibilityOf(Email));
         // wait.until(ExpectedConditions.elementToBeClickable(Email)); Elementin clickable olmadığını verify et??
-        Assert.assertEquals(AutomationExerciseAccountInfo.NewEmailAddress,"baris3@hotmail.com");
+        WebElement getNewEmailText = driver.findElement(By.id("email"));
+        String actualNewEmail = getNewEmailText.getAttribute("value");
+        String expectedNewEmail=AutomationExerciseAccountInfo.NewEmailAddress2;
+        Assert.assertEquals(expectedNewEmail,actualNewEmail);
+        //Assert.assertEquals(AutomationExerciseAccountInfo.NewEmailAddress,"baris9@hotmail.com");
+
 
         wait.until(ExpectedConditions.visibilityOf(Password));
         wait.until(ExpectedConditions.elementToBeClickable(Password));
@@ -121,7 +132,7 @@ public class AutomationExerciseSignupPage {
 
        // wait.until(ExpectedConditions.visibilityOf(DayofBirth));
        // wait.until(ExpectedConditions.elementToBeClickable(DayofBirth));
-       // DayofBirth.click();
+      // DayofBirth.click();
 
         wait.until(ExpectedConditions.visibilityOf(DayofBirthDropDown));
         wait.until(ExpectedConditions.elementToBeClickable(DayofBirthDropDown));
@@ -146,6 +157,7 @@ public class AutomationExerciseSignupPage {
         wait.until(ExpectedConditions.visibilityOf(FirstName));
         wait.until(ExpectedConditions.elementToBeClickable(FirstName));
         FirstName.sendKeys(AutomationExerciseAccountInfo.NewFirstName);
+
 
         wait.until(ExpectedConditions.visibilityOf(LastName));
         wait.until(ExpectedConditions.elementToBeClickable(LastName));
@@ -186,7 +198,7 @@ public class AutomationExerciseSignupPage {
 
         wait.until(ExpectedConditions.visibilityOf(CreateAccountButton));
         wait.until(ExpectedConditions.elementToBeClickable(CreateAccountButton));
-        CreateAccountButton.click();
+        CreateAccountButton.submit();
 
         //select[@id="days"]//option[26]
         //b[contains(text(),'Account Created!')]

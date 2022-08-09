@@ -1,3 +1,6 @@
 public class test {
-    public static void main(String[] args) { System.out.println("baris"); }
+    public static void main(String[] args) {
+        System.out.println("baris");
+    }
 }
+
