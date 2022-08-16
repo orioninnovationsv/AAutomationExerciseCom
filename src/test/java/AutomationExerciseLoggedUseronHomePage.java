@@ -17,21 +17,41 @@ public class AutomationExerciseLoggedUseronHomePage
             this.driver = driver;
             PageFactory.initElements(this.driver, this);
         }
-        @FindBy(xpath = "//b[contains(text(),'Baris3')]")
+        @FindBy(xpath = "//b[contains(text(),'Baris12')]")
         public WebElement LoggedInAsUsername;
+
+        @FindBy(xpath = "//b[contains(text(),'Kandy SV1')]")
+        public WebElement LoggedInAsUsername2;
 
         public String getLoggedUseronHomePageText() {
 
-            String LoggedUseronHomePageText = driver.findElement(By.xpath("//b[contains(text(),'Account Created!')]")).getText();
+            String LoggedUseronHomePageText = driver.findElement(By.xpath("//b[contains(text(),'Baris12')]")).getText();
             return LoggedUseronHomePageText;
+
+        }
+
+
+        public String getLoggedUser2onHomePageText() {
+
+        String LoggedUseronHomePageText = driver.findElement(By.xpath("//b[contains(text(),'Kandy SV1')]")).getText();
+        return LoggedUseronHomePageText;
 
         }
         public void LoggedUseronHomePage() {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.visibilityOf(LoggedInAsUsername));
             String EnterAccountInformationText = getLoggedUseronHomePageText();
-            Assert.assertEquals(LoggedInAsUsername, "Baris3");
+            Assert.assertEquals(EnterAccountInformationText, "Baris12");
+            System.out.println("OK");
 
         }
+
+        public void LoggedUser2onHomePage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(LoggedInAsUsername2));
+        String EnterAccountInformationText = getLoggedUser2onHomePageText();
+        Assert.assertEquals(EnterAccountInformationText, "Kandy SV1");
+        System.out.println("test");
+    }
     }
 

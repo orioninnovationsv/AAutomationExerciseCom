@@ -41,6 +41,9 @@ public class RegisterUser {
 
         AutomationExerciseNewAccountCreatedPage newAccountCreatedPage = new AutomationExerciseNewAccountCreatedPage(driver);
         newAccountCreatedPage.AccountCreatedPage();
+
+        AutomationExerciseLoggedUseronHomePage loggedUseronHomePage = new AutomationExerciseLoggedUseronHomePage(driver);
+        loggedUseronHomePage.LoggedUseronHomePage();
     }
 }
 

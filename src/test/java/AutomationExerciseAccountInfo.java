@@ -29,4 +29,8 @@ public class AutomationExerciseAccountInfo {
     public static String NewCity ="Istanbul";
     public static String NewZipCode = "34000";
     public static String NewMobileNumber ="901234567890";
+    public static String LoginEmailAddress = "kandysv1@gmail.com";
+    public static String LoginPassword ="Kandy-1234";
+    public static String LoginIncorrectEmailAddress = "wrongusername@gmail.com";
+    public static String LoginIncorrectPassword = "WrongPassword";
 }
