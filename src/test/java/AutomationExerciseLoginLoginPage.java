@@ -97,7 +97,6 @@ public class AutomationExerciseLoginLoginPage {
         Login.click();
 
         wait.until(ExpectedConditions.visibilityOf(IncorrectLoginText));
-        wait.until(ExpectedConditions.visibilityOf(IncorrectLoginText));
         String IncorrectLoginText = getIncorrectLoginText();
         Assert.assertEquals(IncorrectLoginText, "Your email or password is incorrect!");
 
