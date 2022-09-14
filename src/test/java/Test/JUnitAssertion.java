@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.Duration;
 
 
 public class JUnitAssertion
@@ -18,9 +19,9 @@ public class JUnitAssertion
     {
         //browser ı çalıştırın
         WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver= new ChromeDriver();
         driver.manage().window().maximize();
-        //driver.manage().timeouts().implicitlyWait(ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 
         //1 navigate to url
         driver.get("https://www.automationexercise.com/");

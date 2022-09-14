@@ -12,6 +12,7 @@ import java.time.Duration;
 public class Amazon
 {
     public static void main(String[] args) {
+
         WebDriverManager.chromedriver().setup();
         WebDriver driver= new ChromeDriver();
         //sayfayı tam sayfa yapar
